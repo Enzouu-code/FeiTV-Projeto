@@ -210,11 +210,11 @@ def ver_favoritos():
         if dados[0] == usuario_logado:
             print("\n=== FAVORITOS ===")
 
-            if len(dados) < 3 or dados[2] == "":
+            if len(dados) < 3 or dados[2] == "":  # verifica se existem favoritos
                 print("Nenhum favorito")
                 return
 
-            favoritos = dados[2].split(",")
+            favoritos = dados[2].split(",") # se houver mais de 1 vídeo favoritado, são dividos por vírgula
 
             for f in favoritos:
                 print("❤️", f)
@@ -306,4 +306,3 @@ def remover_favorito():
             return
 
     print("❌ Usuário não encontrado")
-
