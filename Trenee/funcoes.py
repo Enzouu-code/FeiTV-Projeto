@@ -31,7 +31,7 @@ def carregar_dados():
     arq = open(ARQ_USUARIOS, "r", encoding="utf-8")
 
     for linha in arq:
-        linha = linha.strip()
+        linha = linha.strip()  # remover quebra de linha \n e os espaços
 
         if linha != "":
             usuarios.append(linha)
