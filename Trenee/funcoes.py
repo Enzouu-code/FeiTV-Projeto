@@ -22,7 +22,7 @@ def carregar_dados():
     usuarios.clear()
     videos.clear()
 
-    if not os.path.exists(ARQ_USUARIOS):
+    if not os.path.exists(ARQ_USUARIOS):   # se o arquivo não existir, cria um arquivo vazio
         open(ARQ_USUARIOS, "w").close()
 
     if not os.path.exists(ARQ_VIDEOS):
