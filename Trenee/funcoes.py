@@ -50,14 +50,14 @@ def carregar_dados():
 
 
 # =====================================
-# SALVAR DADOS
+# SALVAR DADO - função permite que após fechar o projeto, os dados sejam salvos e não apenas quando ele estiver rodando
 # =====================================
 
-def salvar_dados():
+def salvar_dados():                                 # a forma como irá salvar os usuarios.txt
     arq = open(ARQ_USUARIOS, "w", encoding="utf-8") #acentos, símbolos especiais, ç, emojis
 
     for u in usuarios:
-        arq.write(u + "\n")
+        arq.write(u + "\n")   # a forma como irá escrever o usuário
     arq.close()
 
     arq = open(ARQ_VIDEOS, "w", encoding="utf-8") #acentos, símbolos especiais, ç, emojis
@@ -81,7 +81,7 @@ def cadastrar_usuario():
         return
 
     for u in usuarios:
-        dados = u.split(";")    # Separar login e senha, divide o texto onde tem ;      isso "joao;1234"  vira ["joao", "1234"]
+        dados = u.split(";")    # Separar login e senha por;      isso "joao;1234"  vira ["joao", "1234"]
 
         if dados[0] == login:
             print("❌ Já existe")
@@ -100,7 +100,7 @@ def fazer_login():
     senha = input("Senha: ")
 
     for u in usuarios:
-        dados = u.split(";")        # Separar login e senha, divide o texto onde tem ;      isso "joao;1234"  vira ["joao", "1234"]
+        dados = u.split(";")        # Separar login e senha por;      isso "joao;1234"  vira ["joao", "1234"]
         if login == dados[0] and senha == dados[1]:
             usuario_logado = login
             print("✅ Logado")
@@ -121,7 +121,7 @@ def listar_videos():
         return
 
     for v in videos:
-        dados = v.split(";")        # Separar login e senha, divide o texto onde tem ;  
+        dados = v.split(";")        # Separar login e senha por;  
 
         print("\nNome:", dados[0])        # ["Breaking Bad", "Serie sobre quimica", "120"]
         print("Descrição:", dados[1])
@@ -132,7 +132,7 @@ def buscar_video():
     termo = input("Buscar: ")
 
     for v in videos:
-        dados = v.split(";")         # Separar login e senha, divide o texto onde tem ;  
+        dados = v.split(";")         # Separar login e senha por;  
         if termo.lower() in dados[0].lower():    # pode Digitar minúsculo 
 
             print("\nEncontrado")
